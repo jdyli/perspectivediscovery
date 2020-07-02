@@ -1,7 +1,5 @@
 # Folders
 venv/
-data/old_results/
 src/__pycache__/
 .idea/
-trash/
 userstudy/.ipynb_checkpoints/
