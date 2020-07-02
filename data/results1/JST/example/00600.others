@@ -1,0 +1,20 @@
+data_dir=/Users/Jody/Documents/Master_CS/Thesis/code/thesis/data/results1/JST/example/
+datasetFile=tokenized_data.txt
+result_dir=/Users/Jody/Documents/Master_CS/Thesis/code/thesis/data/results1/JST/example/
+sentiLexFile=/Users/Jody/Documents/Master_CS/Thesis/code/literature_models/JST/data/mpqa.constraint
+
+-------------------- Corpus statistics -----------------------
+numDocs=600
+corpusSize=29423
+aveDocLength=49
+vocabSize=3343
+
+---------------------- Model settings -----------------------
+numSentiLabs=2
+numTopics=3
+liter=600
+savestep=200
+updateParaStep=-1
+_alpha=50.000000
+_beta=0.010000
+_gamma=1.225000

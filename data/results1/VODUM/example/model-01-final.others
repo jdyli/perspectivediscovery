@@ -1,0 +1,11 @@
+alpha=8.33333
+beta0=0.01
+beta1=0.01
+eta=0.1
+ntopics=6
+nviews=1
+ndocs=600
+nwords=3244
+ntopwords=1593
+nopwords=2042
+perplexity=310.6536088169065

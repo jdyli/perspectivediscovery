@@ -1,0 +1,12 @@
+In terminal run:
+
+java -jar "bin/vodum.jar"
+-est -alpha 8.33333
+-beta0 0.01
+-beta1 0.01
+-ntopics 6
+-nviews 1
+-nchains 1
+-niters 1000
+-savestep 1000
+-topwords 10 -dir "/[PC_LOCATION]/thesis/data/results1/VODUM/[UNIQUE_FOLDERNAME]/" -dfile "tokenized_data.dat"

@@ -1,0 +1,7 @@
+Run the two commands below:
+
+java LearnTopicModel -model tam -input /[PC_LOCATION]/thesis/data/results1/TAM/[UNIQUE_FOLDERNAME]/tokenized_data.txt
+-iters 1000 -Z 1 -Y 6 -alpha 8.33333 -beta 0.01
+
+python topwords_tam.py /[PC_LOCATION]/thesis/data/results1/TAM/[UNIQUE_FOLDERNAME]/tokenized_data.txt.assign >
+/[PC_LOCATION]/thesis/data/results1/TAM/[UNIQUE_FOLDERNAME]/output_topwords_tokenized_data.txt

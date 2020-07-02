@@ -1,0 +1,16 @@
+path_docs: /[PC_LOCATION]/thesis/data/results1/LAM/[UNIQUE_FOLDERNAME]/tokenized_data_lam.csv
+path_subjectivity_priors: ./data/mpqa_subjectivity_priors.txt
+path_output: /[PC_LOCATION]/thesis/data/results1/LAM/[UNIQUE_FOLDERNAME]/
+epochs: 1
+n_topics: [6]
+n_viewpoints: [2]
+x: lex_pos
+sentence_extraction: discriminative
+running_method: topics_first
+high_viewpoint_high_topic: true
+remove_ambigous_viewpoint_sentences: true
+path_palmetto_pyscript: ./eval/palmetto.py
+path_palmetto_jar: ./eval/palmetto-0.1.0-jar-with-dependencies.jar
+path_wikipedia_dump: ./eval/Wikipedia_bd/wikipedia_bd
+
+# run in the correct LAM-folder of external source: python3 explore_lam.py configuration_abortion.yml
