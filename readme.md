@@ -44,7 +44,7 @@ then computed the reliability with the Krippendorff's Alpha. These reliability s
 the topic models described above. This means that you have to use the external source code of the existing topic models to run tokenized formats and let it direct to ```./data/results1/[TOPIC_MODEL_NAME/UNIQUE_FOLDERNAME]/```. Using
 ```./src/main.py``` you can run these results to compute the evaluation metrics. after you have tokenized the documents it will be saved under ```./data/results1/[TOPIC_MODEL_NAME/UNIQUE_FOLDERNAME]/```
 as csv-file or txt-file (depending on the type of model). Under ```./data/results1/[TOPICMODEL]/example``` we provide for each topic model an example of what data is exactly stored per model. 
-You find the tokenized input data that uses baseline tokenization and the dataset ```abortion_debateorg_COMPLETE_1617combo.csv``` as well as the corresponding topic model's output data. 
+You find the tokenized input data that uses baseline tokenization and the dataset ```abortion_debateorg_COMPLETE.csv``` as well as the corresponding topic model's output data. 
 You can also use this example to run the main file ```./src/main.py```.
 - Under ```/data/topicmodel_templates/``` we provide a template as to how you can configure the required parameter file of the topic models VODUM, TAM, LAM and JST. 
 - ```./userstudy``` provide results of the user study
