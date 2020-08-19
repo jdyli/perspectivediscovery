@@ -151,8 +151,8 @@ def get_data(domain):
     perspectives_n = 6
     articles_n = 100
 
-    if 'newrandom' in domain:
-        abortion_file = '../data/abortion_debateorg/abortion_debateorg_COMPLETE_1617combo.csv'
+    if 'fullcorpus_abortion' in domain:
+        abortion_file = '../data/abortion_debateorg/fullcorpus_abortion.csv' # change path if necessary
         data_df = pd.read_csv(abortion_file)
         data_df = data_df.dropna()
         data_df['perspective_list'] = data_df['perspective'].apply(literal_eval)
@@ -176,14 +176,14 @@ def get_data(domain):
 
     else:
         topics_all = [2, 3, 11, 16, 18, 24]
-        abortion_file = '../data/abortion_debateorg/abortion_random600_17removal.csv'
+        abortion_file = '../data/abortion_debateorg/finalcorpus600_abortion.csv' # change path if necessary
         newsubset = pd.read_csv(abortion_file)
         newsubset['perspective_list'] = newsubset['perspective'].apply(literal_eval)
     data = newsubset['article']
     topics_n_all = len(topics_all)
     perspectives_data = newsubset['perspective_list']
     '''end evenly distributed'''
-    # newsubset.to_csv('../data/abortion_debateorg/abortion_debateorg_newsubset.csv', index=False) # UNCOMMENT TO SAVE
+    # newsubset.to_csv('../data/abortion_debateorg/newsubset_abortion.csv', index=False) # UNCOMMENT TO SAVE
     return data, topics_n_all, perspectives_data
 
 
@@ -200,8 +200,8 @@ def menu(domain, foldername, bool_allmodels, bool_tokenize_docs):
 
 
 '''PARAMETERS'''
-domain = 'abortion_debateorg_newrandom'  # for datafile
-# domain = 'abortion_debateorg_fixed' # this file has been used for the research
+# domain = 'fullcorpus_abortion'
+domain = 'finalcorpus600_abortion' # this file has been used for the research
 
 print('Do you want to prepare your raw documents and tokenize them for the topic models? (y/n)') # choose this option if you haven't tokenized documents yet
 tokenize_docs = input()
