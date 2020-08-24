@@ -1,6 +1,6 @@
-path_docs: /[PC_LOCATION]/thesis/data/results1/LAM/[UNIQUE_FOLDERNAME]/tokenized_data_lam.csv
+path_docs: /[PC_LOCATION]/thesis/data/models/LAM/[UNIQUE_FOLDERNAME]/tokenized_data_lam.csv
 path_subjectivity_priors: ./data/mpqa_subjectivity_priors.txt
-path_output: /[PC_LOCATION]/thesis/data/results1/LAM/[UNIQUE_FOLDERNAME]/
+path_output: /[PC_LOCATION]/thesis/data/models/LAM/[UNIQUE_FOLDERNAME]/
 epochs: 1
 n_topics: [6]
 n_viewpoints: [2]

@@ -11,7 +11,7 @@ docId [token1] [token2] ... [token n]
 '''
 def create_dataformat1(data, foldername, model):
     new_data = [' '.join([str(elem) for elem in i]) for i in data]
-    filename = '../data/results1/' + model + '/' + foldername + '/tokenized_data.txt'
+    filename = '../data/models/' + model + '/' + foldername + '/tokenized_data.txt'
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     with open(filename, 'w') as filehandle:
         for item in range(0, len(new_data)):
@@ -46,7 +46,7 @@ def create_dataformat2(data, foldername, model):
             new_string_list.append(new_string)
         new_data.append(''.join(new_string_list))
 
-    filename = '../data/results1/' + model + '/' + foldername + '/tokenized_data.dat'
+    filename = '../data/models/' + model + '/' + foldername + '/tokenized_data.dat'
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     with open(filename, 'w') as filehandle:
         filehandle.write('%d\n' % len(reformatted_data))
@@ -59,7 +59,7 @@ Format for JTV
 def create_dataformat3(data, foldername, model):
     print(foldername)
     new_data = [' '.join([str(elem) for elem in i]) for i in data]
-    filename = '../data/results1/' + model + '/' + foldername + '/tokenized_data_jtv.txt'
+    filename = '../data/models/' + model + '/' + foldername + '/tokenized_data_jtv.txt'
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     with open(filename, 'w') as filehandle:
         for item in range(0, len(new_data)):
@@ -70,7 +70,7 @@ Format for LAM
 [docid] [metadata] [full-text] [tokens]
 '''
 def create_dataformat4(perspective, articles, tokens, foldername, model):
-    filename = '../data/results1/' + model + '/' + foldername + '/tokenized_data_lam.csv'
+    filename = '../data/models/' + model + '/' + foldername + '/tokenized_data_lam.csv'
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     data = pd.DataFrame()
     data['perspective'] = perspective
@@ -134,8 +134,8 @@ def read_tam_toptopics(filename, twords_n=5, topics_n=6):
 Read top 10 tokens per topic for VODUM
 '''
 def read_vodum_toptopics(foldername, twords_n=5):
-    file_name_viewpoints = '../data/results1/VODUM/' + foldername + '/model-01-final.vtwords'
-    file_name_topics = '../data/results1/VODUM/' + foldername + '/model-01-final.twords'
+    file_name_viewpoints = '../data/models/VODUM/' + foldername + '/model-01-final.vtwords'
+    file_name_topics = '../data/models/VODUM/' + foldername + '/model-01-final.twords'
 
     # read the main perspectives
     twords_list = []

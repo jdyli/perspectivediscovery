@@ -3,11 +3,11 @@ Main code of the project. Use the parameters below (line 210) to change the data
 1) Lets you preprocess the raw documents into the desired tokenized documents. These are then saved in the correct
 topic model format as csv-file or txt-file so you can run them on existing topic models from an external source.
 - Modify clean_and_save_data() to choose your desired preprocessing pipeline on the raw documents.
-- Files are saved under the './data/results1/[TOPIC_MODEL_NAME]/[UNIQUE_FOLDERNAME]/'
+- Files are saved under the './data/models/[TOPIC_MODEL_NAME]/[UNIQUE_FOLDERNAME]/'
 
 2) Lets you evaluate topic models based on aRI and topic coherence.
 - This only works AFTER you've obtained the output of the topic models from the external source
-- This works if you've put the output in the correct folder >> './data/results1/[TOPIC_MODEL_NAME]/[UNIQUE_FOLDERNAME]/'
+- This works if you've put the output in the correct folder >> './data/models/[TOPIC_MODEL_NAME]/[UNIQUE_FOLDERNAME]/'
 
 Code works on the following topic models: LAM, TAM, JST, VODUM and LDA.
 '''
@@ -90,7 +90,7 @@ class Topicmodel(object):
 
         if bool_allmodels == True:
             '''JST'''
-            jstfile = '../data/results1/JST/' + file_extension + '/final.twords'
+            jstfile = '../data/models/JST/' + file_extension + '/final.twords'
             if os.path.isfile(jstfile):
                 jst_topic = fm.read_jst_toptopics(jstfile)
                 jst_results_model_df = evalmodels.evaluate_JST(file_extension, self.data, self.perspectives)
@@ -111,7 +111,7 @@ class Topicmodel(object):
             output_list.append(vodum_topic)
 
             '''TAM'''
-            tamfile = '../data/results1/TAM/' + file_extension + '/output_topwords_tokenized_data.txt'
+            tamfile = '../data/models/TAM/' + file_extension + '/output_topwords_tokenized_data.txt'
             tam_topic = fm.read_tam_toptopics(tamfile)
             tam_results_model_df = evalmodels.evaluate_TAM(tam_foldername=file_extension, data=self.data,
                                                            perspectives=self.perspectives, topics_list=tam_topic)
@@ -122,7 +122,7 @@ class Topicmodel(object):
             output_list.append(tam_topic)
 
             '''LAM'''
-            lamfile = '../data/results1/LAM/' + file_extension + '/lam.out'
+            lamfile = '../data/models/LAM/' + file_extension + '/lam.out'
             lam_topic_dict, lam_topic = fm.read_lam_toptopics(lamfile)
             lam_results_model_df = evalmodels.evaluate_LAM(lam_foldername=file_extension, data=self.data,
                                                            perspectives=self.perspectives, topics_dict=lam_topic_dict)
@@ -206,7 +206,7 @@ domain = 'finalcorpus600_abortion' # this file has been used for the research
 print('Do you want to prepare your raw documents and tokenize them for the topic models? (y/n)') # choose this option if you haven't tokenized documents yet
 tokenize_docs = input()
 if tokenize_docs == 'y':
-    print('How should the folder be called to save this data? The folder will be saved in [./data/results1]')
+    print('How should the folder be called to save this data? The folder will be saved in [./data/models]')
     foldername = input()
     allmodels = False
     tokenize_docs = True
@@ -216,7 +216,7 @@ else:
     allmodels = input()
     if allmodels == 'y':
         print(
-            'In which folder are these results saved? [./data/results1]? [CHOOSE THE NAME WHERE YOU HAVE SAVED THE TOKENIZED DOCS AND THE MODEL RESULTS] ')
+            'In which folder are these results saved? [./data/models]? [CHOOSE THE NAME WHERE YOU HAVE SAVED THE TOKENIZED DOCS AND THE MODEL RESULTS] ')
         foldername = input()
         allmodels = True
         tokenize_docs = False

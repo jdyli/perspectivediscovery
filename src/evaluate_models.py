@@ -11,9 +11,9 @@ import os
 def evaluate_JST(jst_foldername, data, perspectives):
     number_of_topics = 3
     number_of_words = 10
-    pi = '../data/results1/JST/' + jst_foldername + '/final.pi'  # sentiment distribution
-    theta = '../data/results1/JST/' + jst_foldername + '/final.theta'  # topics distribution per sentiment
-    twords = '../data/results1/JST/' + jst_foldername + '/final.twords'  # sentiment, topic, words
+    pi = '../data/models/JST/' + jst_foldername + '/final.pi'  # sentiment distribution
+    theta = '../data/models/JST/' + jst_foldername + '/final.theta'  # topics distribution per sentiment
+    twords = '../data/models/JST/' + jst_foldername + '/final.twords'  # sentiment, topic, words
 
     # Retrieving the sentiment labels per document
     pi_df = pd.DataFrame(columns=['sentiment_label', 'sentiment_contrib', 'sum_topic'])
@@ -78,12 +78,12 @@ def evaluate_JST(jst_foldername, data, perspectives):
     twords_df.columns = ['doc_no', 'words0', 'words1', 'words2']
     final_results_df = pd.concat([data, twords_df['words0'], sentiment_topic_df[['sentiment_label', 'sum_topic', 'theta0']], perspectives], axis=1)
     final_results_df.columns = ['doc', 'words', 'sentiment_label', 'sum_topic', 'theta0', 'perspective']
-    final_results_df.to_csv('../data/results1/JST/' + jst_foldername + '/top_topic_per_doc.csv', index=False)
+    final_results_df.to_csv('../data/models/JST/' + jst_foldername + '/top_topic_per_doc.csv', index=False)
     return final_results_df
 
 def evaluate_VODUM(vodum_foldername, data, perspectives, topics_list):
     vodum_df = pd.DataFrame(columns=['words', 'viewpoint', 'topic', 'sum_topic'])
-    file_name_documents = '../data/results1/VODUM/' + vodum_foldername + '/model-01-final.assign'
+    file_name_documents = '../data/models/VODUM/' + vodum_foldername + '/model-01-final.assign'
 
     with open(file_name_documents) as read_docs:
         for line in enumerate(read_docs):
@@ -97,11 +97,11 @@ def evaluate_VODUM(vodum_foldername, data, perspectives, topics_list):
     read_docs.close()
     final_results_df = pd.concat([data, vodum_df, perspectives], axis=1)
     final_results_df.columns = ['doc', 'words', 'viewpoint', 'topic', 'sum_topic', 'perspective']
-    final_results_df.to_csv('../data/results1/VODUM/' + vodum_foldername + '/top_topic_per_doc.csv', index=False)
+    final_results_df.to_csv('../data/models/VODUM/' + vodum_foldername + '/top_topic_per_doc.csv', index=False)
     return final_results_df
 
 def evaluate_LDA(ldafoldername, corpus, ldamodel, top_topics_n, data, perspectives):
-    filename = '../data/results1/LDA/' + ldafoldername + '/top_topic_per_doc.csv'
+    filename = '../data/models/LDA/' + ldafoldername + '/top_topic_per_doc.csv'
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     lda_df = pd.DataFrame(columns=['words', 'topic'])
 
@@ -121,7 +121,7 @@ def evaluate_LDA(ldafoldername, corpus, ldamodel, top_topics_n, data, perspectiv
     return final_results_df
 
 def evaluate_TAM(tam_foldername, data, perspectives, topics_list):
-    file_name_documents = '../data/results1/TAM/' + tam_foldername + '/tokenized_data.txt.assign'
+    file_name_documents = '../data/models/TAM/' + tam_foldername + '/tokenized_data.txt.assign'
     topic_df = pd.DataFrame(columns=['words', 'topic'])
 
     # Get main topic in each document
@@ -138,12 +138,12 @@ def evaluate_TAM(tam_foldername, data, perspectives, topics_list):
     final_results_df = pd.concat([data, topic_df, perspectives], axis=1)
     final_results_df['sum_topic'] = final_results_df['topic'] + 1
     final_results_df.columns = ['docs', 'words', 'topic', 'perspective', 'sum_topic']
-    final_results_df.to_csv('../data/results1/TAM/' + tam_foldername + '/top_topic_per_doc.csv', index=False)
+    final_results_df.to_csv('../data/models/TAM/' + tam_foldername + '/top_topic_per_doc.csv', index=False)
     return final_results_df
 
 def evaluate_LAM(lam_foldername, data, perspectives, topics_dict):
-    topic_doc = '../data/results1/LAM/' + lam_foldername + '/lam.doc_topic_distribution'
-    vp_doc = '../data/results1/LAM/' + lam_foldername + '/lam.topic_viewpoint_distribution'
+    topic_doc = '../data/models/LAM/' + lam_foldername + '/lam.doc_topic_distribution'
+    vp_doc = '../data/models/LAM/' + lam_foldername + '/lam.topic_viewpoint_distribution'
     topic_df = pd.DataFrame(columns=['topic'])
     vp_df = pd.DataFrame(columns=['viewpoint'])
 
@@ -177,7 +177,7 @@ def evaluate_LAM(lam_foldername, data, perspectives, topics_dict):
     final_results_df = pd.concat([data, viewpoint_results_df, perspectives], axis=1)
     final_results_df['sum_topic'] = final_results_df['topic'] + 1
     final_results_df.columns = ['docs', 'topic', 'viewpoint', 'words', 'perspective', 'sum_topic']
-    final_results_df.to_csv('../data/results1/LAM/' + lam_foldername + '/top_topic_per_doc.csv', index=False)
+    final_results_df.to_csv('../data/models/LAM/' + lam_foldername + '/top_topic_per_doc.csv', index=False)
     return final_results_df
 
 # ARI = (RI - Expected_RI) / (max(RI) - Expected_RI)

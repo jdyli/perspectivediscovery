@@ -32,7 +32,7 @@ Below you see the folder structure (explicit files are excluded).
 |   +-- evaluate_annotations
 |   +-- results1
 |   +-- topicmodel_templates
-+-- userstudy
++-- userstudy_analysis
 +-- src
 ```
 
@@ -47,7 +47,7 @@ as csv-file or txt-file (depending on the type of model). Under ```./data/result
 You find the tokenized input data that uses baseline tokenization and the dataset ```abortion_debateorg_COMPLETE.csv``` as well as the corresponding topic model's output data. 
 You can also use this example to run the main file ```./src/main.py```.
 - Under ```/data/topicmodel_templates/``` we provide a template as to how you can configure the required parameter file of the topic models VODUM, TAM, LAM and JST. 
-- ```./userstudy``` provide results of the user study
+- ```./userstudy_analysis``` provide results of the user study
 
 
 If you have any questions, feel free to contact me at any time!
